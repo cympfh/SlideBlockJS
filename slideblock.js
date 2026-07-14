@@ -1,5 +1,5 @@
 /*!
- * SlideBlockJS v1.0
+ * SlideBlockJS v1.1
  * Single-file vanilla JS library for slide-block style HTML documents.
  * No dependencies. MIT License.
  */
