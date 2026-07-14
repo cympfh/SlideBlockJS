@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SlideBlockJS サンプル</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, "Hiragino Sans", sans-serif;
+      color: #222;
+      line-height: 1.7;
+    }
+    .slide-block {
+      border-bottom: 1px solid #eee;
+    }
+    pre {
+      background: #1e1e1e;
+      color: #f8f8f2;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    figure {
+      margin: 2rem 0;
+    }
+    figure figcaption {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <section id="intro" class="slide-block">
+    <h1>SlideBlockJS</h1>
+    <p>縦長HTML文書をスライドブロック単位で扱う、依存なし単一ファイルのJSライブラリ。</p>
+    <ul>
+      <li>スクロールスナップ</li>
+      <li>キーボードナビゲーション（矢印キー）</li>
+      <li>現在ブロックの自動強調</li>
+      <li>自動目次生成</li>
+    </ul>
+  </section>
+
+  <section id="usage" class="slide-block">
+    <h1>使い方</h1>
+    <p>各スライドを <code>section.slide-block</code> で囲み、ライブラリを読み込むだけ。</p>
+    <pre><code>&lt;section id="block1" class="slide-block"&gt;
+  &lt;h1&gt;タイトル&lt;/h1&gt;
+  &lt;p&gt;本文&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;script src="slideblock.js"&gt;&lt;/script&gt;</code></pre>
+  </section>
+
+  <section id="figure" class="slide-block">
+    <h1>図表の例</h1>
+    <p>ブロック内には自由にHTMLを書ける。</p>
+    <figure>
+      <svg width="320" height="160" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="90" width="60" height="60" fill="#8ab4f8"/>
+        <rect x="90" y="60" width="60" height="90" fill="#78d9a5"/>
+        <rect x="170" y="30" width="60" height="120" fill="#f6c85f"/>
+        <rect x="250" y="10" width="60" height="140" fill="#f28b82"/>
+      </svg>
+      <figcaption>サンプルの棒グラフ（ダミーデータ）</figcaption>
+    </figure>
+  </section>
+
+  <section id="code" class="slide-block">
+    <h1>コード例</h1>
+    <p>手動初期化でオプションを変更する場合。</p>
+    <pre><code>SlideBlockJS.init({
+  container: document.body,
+  snap: true,
+  keyboard: true,
+  toc: true
+});</code></pre>
+  </section>
+
+  <section id="keyboard" class="slide-block">
+    <h1>キーボード操作</h1>
+    <table>
+      <tr><th>キー</th><th>動作</th></tr>
+      <tr><td>→ / ↓</td><td>次のブロックへ</td></tr>
+      <tr><td>← / ↑</td><td>前のブロックへ</td></tr>
+    </table>
+  </section>
+
+  <section id="toc-demo" class="slide-block">
+    <h1>目次</h1>
+    <p>画面右に固定表示される目次から、任意のブロックへジャンプできる。目次はこのページのように自動生成される。</p>
+  </section>
+
+  <section id="outro" class="slide-block">
+    <h1>おわりに</h1>
+    <p>詳細は <code>spec.md</code> と <code>README.md</code> を参照。</p>
+  </section>
+
+  <script src="../slideblock.js"></script>
+</body>
+</html>
