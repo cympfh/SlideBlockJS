@@ -4,6 +4,12 @@
 
 詳細仕様は [spec.md](./spec.md) 参照。
 
+すぐ試したいだけなら、ダウンロードせず以下をそのまま `<script src>` に指定してもよい（GitHub Pagesで公開中）。ただし将来の更新で挙動が変わる可能性があるため、資料として残す場合は `slideblock.js` をダウンロードして同梱することを推奨する。
+
+```html
+<script src="https://cympfh.cc/SlideBlockJS/slideblock.js"></script>
+```
+
 ## 使い方
 
 1. 各スライドを `<section class="slide-block" id="...">` で囲む
