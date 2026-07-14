@@ -46,7 +46,13 @@
       '#toc.slideblockjs-toc a{display:block;padding:4px 8px;color:#333;' +
       'text-decoration:none;border-radius:4px;}' +
       '#toc.slideblockjs-toc a:hover{background:#eee;}' +
-      '#toc.slideblockjs-toc a.current{background:#dde;font-weight:bold;}';
+      '#toc.slideblockjs-toc a.current{background:#dde;font-weight:bold;}' +
+      '.slideblockjs-toc-toggle{display:block;width:100%;text-align:right;' +
+      'background:transparent;border:none;font-size:1.1rem;line-height:1;' +
+      'cursor:pointer;padding:0;margin:0 0 8px 0;color:#333;}' +
+      '#toc.slideblockjs-toc.collapsed{width:auto;}' +
+      '#toc.slideblockjs-toc.collapsed .slideblockjs-toc-toggle{margin:0;}' +
+      '#toc.slideblockjs-toc.collapsed ul{display:none;}';
     document.head.appendChild(style);
   }
 
@@ -152,6 +158,17 @@
       state.tocCreated = true;
     }
     toc.classList.add('slideblockjs-toc');
+    toc.innerHTML = '';
+
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'slideblockjs-toc-toggle';
+    toggle.textContent = '☰';
+    toggle.setAttribute('aria-label', '目次の開閉');
+    toggle.addEventListener('click', function () {
+      toc.classList.toggle('collapsed');
+    });
+    toc.appendChild(toggle);
 
     var list = document.createElement('ul');
     state.blocks.forEach(function (block, index) {
@@ -167,7 +184,6 @@
       item.appendChild(link);
       list.appendChild(item);
     });
-    toc.innerHTML = '';
     toc.appendChild(list);
   }
 
