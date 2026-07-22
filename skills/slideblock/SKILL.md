@@ -32,6 +32,8 @@ SlideBlockJSは「スライド資料」を作るツールではない。**縦長
 1. スライド1枚につき `<section class="slide-block" id="一意なID">` で囲む
 2. ブロック内の最初の見出し（`<h1>` 推奨）が目次のタイトルになる
 3. `id` は目次ジャンプ・URLハッシュ用なので必ず付ける
+    - `id` は内容を表す意味のある名前にする（`intro` など）
+    - 連番（`block1`, `block2`, `01-intro` など）は非推奨。ブロックの挿入・削除で番号がずれる
 4. `slideblock.js` を `<body>` の最後で読み込む（読み込み時に自動初期化される）
 
 ```html
@@ -42,7 +44,7 @@ SlideBlockJSは「スライド資料」を作るツールではない。**縦長
   <title>発表タイトル</title>
 </head>
 <body>
-  <section id="block1" class="slide-block">
+  <section id="intro" class="slide-block">
     <h1>ブロックタイトル</h1>
     <p>主要メッセージ</p>
     <ul>
@@ -51,7 +53,7 @@ SlideBlockJSは「スライド資料」を作るツールではない。**縦長
     </ul>
   </section>
 
-  <section id="block2" class="slide-block">
+  <section id="architecture-overview" class="slide-block">
     <h1>次のトピック</h1>
     <p>...</p>
   </section>
